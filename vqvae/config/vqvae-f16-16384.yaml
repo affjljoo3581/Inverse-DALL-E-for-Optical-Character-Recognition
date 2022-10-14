@@ -1,0 +1,31 @@
+data:
+  image_files: resources/external/*.jpg
+  image_size: 384
+  validation_ratio: 0.01
+
+model:
+  encoder:
+    num_channels: 3
+    num_layers: [2, 2, 2, 2, 2]
+    hidden_dims: [128, 128, 256, 256, 512]
+  decoder:
+    num_channels: 3
+    num_layers: [2, 2, 2, 2, 2]
+    hidden_dims: [512, 256, 256, 128, 128]
+  quantizer:
+    num_embeddings: 16384
+    embedding_dim: 512
+    factorized_dim: 32
+
+optim:
+  lr: 5e-5
+  betas: [0.5, 0.9]
+  eps: 1e-6
+
+train:
+  epochs: 100
+  batch_size: 32
+  accumulate_grad_batches: 1
+  gradient_clip_val: 0.0
+  validation_interval: 1.0
+  log_every_n_steps: 10

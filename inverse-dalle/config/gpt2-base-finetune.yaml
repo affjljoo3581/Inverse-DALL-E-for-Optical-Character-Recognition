@@ -1,0 +1,24 @@
+data:
+  train_dataset: resources/external-f16-16384-128.csv
+  num_visual_tokens: 16384
+  max_visual_length: 128
+  max_text_length: 16
+
+model: gpt2-base
+
+optim:
+  optimizer:
+    lr: 1e-5
+    betas: [0.9, 0.999]
+    eps: 1e-6
+    weight_decay: 0.01
+  scheduler:
+    name: linear
+    num_warmup_steps: 10000
+    num_training_steps: 100000
+
+train:
+  batch_size: 256
+  accumulate_grad_batches: 1
+  gradient_clip_val: 0.5
+  gradient_checkpointing: false

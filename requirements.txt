@@ -1,0 +1,9 @@
+omegaconf
+opencv-python
+pandas
+pytorch_lightning
+scikit_learn
+torch
+torchvision
+wandb
+tqdm
